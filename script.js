@@ -1,4 +1,3 @@
-// Variaves
 const menu = document.getElementById("menu");
 const cartBtn = document.getElementById("cart-btn");
 const cartModal = document.getElementById("cart-modal");
@@ -29,14 +28,13 @@ closeModalBtn.addEventListener("click", function () {
   cartModal.style.display = "none";
 });
 
-// Add product in cart
 menu.addEventListener("click", function (event) {
+  //
   let parentButton = event.target.closest(".add-to-cart-btn");
 
   if (parentButton) {
     const name = parentButton.getAttribute("data-name");
     const price = parseFloat(parentButton.getAttribute("data-price"));
-
     addToCart(name, price);
   }
 });
@@ -73,18 +71,17 @@ function UpdateCartModal() {
     );
 
     cartItemElement.innerHTML = `
-    
     <div class="flex items-center justify-between">
         <div>
             <p class="font-bold">${item.name}</p>
             <p class="text-sm">Quantidade ${item.quantity}</p>
             <p class="font-medium mt-2">R$  ${item.price.toFixed(2)}</p>
         </div>
-        <div>
+      
             <button class=" remove-from-cart-btn" data-name="${
               item.name
             }">Remover</button>
-        </div>
+       
     </div>
     
     `;
@@ -181,7 +178,7 @@ checkoutBtn.addEventListener("click", function () {
 function checkRestaurantOpen() {
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 18 && hora < 22;
+  return hora >= 10 && hora < 22;
 }
 
 const spanItem = document.getElementById("date-span");
