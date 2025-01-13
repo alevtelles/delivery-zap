@@ -150,13 +150,14 @@ checkoutBtn.addEventListener("click", function () {
     return;
   }
 
-  if ((cart.length = 0)) return;
+  if (cart.length === 0) return;
   if (addressInput.value === "") {
     addressWarn.classList.remove("hidden");
     addressInput.classList.add("border-red-500");
     return;
   }
 
+  // Send request to whatsapp api
   const cartItems = cart
     .map((item) => {
       return ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`;
@@ -175,6 +176,7 @@ checkoutBtn.addEventListener("click", function () {
   UpdateCartModal();
 });
 
+// Check opening hours
 function checkRestaurantOpen() {
   const data = new Date();
   const hora = data.getHours();
